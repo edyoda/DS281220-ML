@@ -47,7 +47,7 @@ coef = pd.Series(model.coef_, predictors).sort_values()
 coef.plot(kind='bar')
 
 from sklearn.linear_model import Lasso
-lasso_model = Lasso(alpha = 5, normalize = True)
+lasso_model = Lasso(alpha = 2, normalize = True)
 lasso_model.fit(X_train, y_train)
 
 print(lasso_model.score(X_train, y_train))
@@ -57,6 +57,44 @@ predictors = X_train.columns
 lasso_coef = pd.Series(lasso_model.coef_, predictors).sort_values()
 
 lasso_coef.plot(kind='bar')
+
+y_pred = lasso_model.predict(X_test)
+
+import matplotlib.pyplot as plt
+plt.plot(y_pred, label='predict')
+plt.plot(y_test.values, label = 'actual')
+plt.ylabel('lasso')
+plt.legend()
+plt.show()
+
+
+from sklearn.linear_model import Ridge
+ridge_model = Ridge(alpha=2, normalize = True)
+ridge_model.fit(X_train, y_train)
+print(ridge_model.score(X_train, y_train))
+print(ridge_model.score(X_test, y_test))
+
+predictors = X_train.columns
+ridge_coef = pd.Series(ridge_model.coef_, predictors).sort_values()
+
+ridge_coef.plot(kind='bar')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
