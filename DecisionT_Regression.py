@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  8 19:28:24 2021
-
-@author: RISHBANS
-"""
-
 import pandas as pd
 dataset = pd.read_csv("Job_Exp.csv")
 

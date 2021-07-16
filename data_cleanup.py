@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 12 20:06:18 2021
-
-@author: RISHBANS
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
