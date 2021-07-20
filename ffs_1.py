@@ -16,6 +16,7 @@ X_train = ss.fit_transform(X_train)
 X_test = ss.transform(X_test)
 
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
 lr = LinearRegression()
 
 from mlxtend.feature_selection import SequentialFeatureSelector as sfs
@@ -29,3 +30,11 @@ lr.fit(X_train[:, feature_select], y_train)
 
 y_pred = lr.predict(X_test[:, feature_select])
 print(y_pred)
+print(r2_score(y_test, y_pred))
+
+from sklearn.tree import DecisionTreeRegressor
+dt = DecisionTreeRegressor()
+dt.fit(X_train[:, feature_select], y_train)
+
+y_pred_dt = dt.predict(X_test[:, feature_select])
+print(r2_score(y_test, y_pred_dt))
